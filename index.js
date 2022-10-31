@@ -5,10 +5,14 @@ import { DateTime } from './modules/luxon.js';
 const store = new Store();
 const ui = new UI();
 
-let dt = DateTime.now();
-dt = dt.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
-const date = document.querySelector('.date');
-date.innerHTML = dt;
+const updateTime = () =>{
+    let dt = DateTime.now();
+    dt = dt.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+    const date = document.querySelector('.date');
+    date.innerHTML = dt;
+}
+
+
 
 class Book {
   constructor(title, author, id = Math.floor(Math.random() * 1000000000000000)) {
@@ -88,3 +92,5 @@ contact.addEventListener('click', () => {
   awesome.style.display = 'none';
   bookDisplay.style.display = 'none';
 });
+
+setInterval(updateTime, 1000);
