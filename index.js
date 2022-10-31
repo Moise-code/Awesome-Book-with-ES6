@@ -5,14 +5,12 @@ import { DateTime } from './modules/luxon.js';
 const store = new Store();
 const ui = new UI();
 
-const updateTime = () =>{
-    let dt = DateTime.now();
-    dt = dt.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
-    const date = document.querySelector('.date');
-    date.innerHTML = dt;
-}
-
-
+const updateTime = () => {
+  let dt = DateTime.now();
+  dt = dt.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+  const date = document.querySelector('.date');
+  date.innerHTML = dt;
+};
 
 class Book {
   constructor(title, author, id = Math.floor(Math.random() * 1000000000000000)) {
@@ -37,7 +35,7 @@ document.querySelector('#book-card').addEventListener('submit', (e) => {
     ui.clearFields();
     store.addBooks(book);
   } else {
-    alert('Please fill inputs');
+    // alert('Please fill inputs');
   }
 });
 // EVENT DELETE
